@@ -1,0 +1,276 @@
+{
+        "openapi": "3.0.1",
+        "info": {
+          "title": "SmartFarm backend API",
+          "version": "1.0.0"
+        },
+        "schemes": ["http"],
+        "servers": [{ "url": "http://localhost:3001" }],
+        "paths": {
+        "/v1/access/add": {
+          "post": {
+            "tags": ["/v1/access/add"],
+            "summary": "",
+            "description": "",
+            "responses": {
+                "200": {
+                  "description": "A hello message",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        },
+        "/v1/access": {
+          "get": {
+            "tags": ["/v1/access"],
+            "summary": "",
+            "description": "",
+            "responses": {
+                "200": {
+                  "description": "A hello message",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        },
+        "/v1/useraccess": {
+          "get": {
+            "tags": ["/v1/useraccess"],
+            "summary": "",
+            "description": "",
+            "responses": {
+                "200": {
+                  "description": "A hello message",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        },
+        "/v1/useraccess/add": {
+          "post": {
+            "tags": ["/v1/useraccess/add"],
+            "summary": "",
+            "description": "",
+            "responses": {
+                "200": {
+                  "description": "A hello message",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        },
+        "/v1/business/addnew": {
+          "post": {
+            "tags": ["/v1/business/addnew"],
+            "summary": "",
+            "description": "",
+            "responses": {
+                "200": {
+                  "description": "A hello message",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        },
+        "/v1/business/getall": {
+          "post": {
+            "tags": ["/v1/business/getall"],
+            "summary": "",
+            "description": "",
+            "responses": {
+                "200": {
+                  "description": "A hello message",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        },
+        "/v1/modules/add": {
+          "post": {
+            "tags": ["/v1/modules/add"],
+            "summary": "",
+            "description": "",
+            "responses": {
+                "200": {
+                  "description": "A hello message",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        },
+        "/v1/modules": {
+          "get": {
+            "tags": ["/v1/modules"],
+            "summary": "",
+            "description": "",
+            "responses": {
+                "200": {
+                  "description": "A hello message",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        },
+        "/v1/roles/addnew": {
+          "post": {
+            "tags": ["/v1/roles/addnew"],
+            "summary": "",
+            "description": "",
+            "responses": {
+                "200": {
+                  "description": "A hello message",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        },
+        "/v1/roles/getall": {
+          "post": {
+            "tags": ["/v1/roles/getall"],
+            "summary": "",
+            "description": "",
+            "responses": {
+                "200": {
+                  "description": "A hello message",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        },
+        "/api/v1/users/login": {
+          "post": {
+            "tags": ["/api/v1/users/login"],
+            "summary": "User login",
+            "description": "Use this Api to login user generate access token",
+            "responses": {
+                "200": {
+                  "description": "A hello message",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        },
+        "/api/v1/users/register": {
+          "post": {
+            "tags": ["/api/v1/users/register"],
+            "summary": "User Registration",
+            "description": "Use this Api to register user generate access token",
+            "responses": {
+                "200": {
+                  "description": "A hello message",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        },
+        "/api/v1/users": {
+          "get": {
+            "tags": ["/api/v1/users"],
+            "summary": "User Registration",
+            "description": "Use this Api to register user generate access token",
+            "responses": {
+                "200": {
+                  "description": "A hello message",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        },
+        "/api/v1/users/:id": {
+          "get": {
+            "tags": ["/api/v1/users/:id"],
+            "summary": "User Registration",
+            "description": "Use this Api to register user generate access token",
+            "responses": {
+                "200": {
+                  "description": "A hello message",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        }}
+    }

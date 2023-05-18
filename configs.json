@@ -1,0 +1,22 @@
+{
+    "baseUrl": "http://localhost:3001",
+    "requestType": "application/json",
+    "swaggerversion": "3.0.1",
+    "extention": "ts",
+    "models": {
+        "path": "/models"
+    },
+    "dtos": {
+        "path": "/Dtos"
+    },
+    "controller": {
+        "path": "/controllers"
+    },
+    "routes": {
+        "appName": "app",
+        "path": "/routes"
+    },
+    "headers": [
+        {"name": "Authorization", "type": "Bearer"}
+    ]
+}
