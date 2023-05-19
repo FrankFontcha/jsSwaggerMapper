@@ -314,7 +314,7 @@
                                     },
                                     "password": {
                                         "type" : "string",
-                                        "example" : "pt4z<ieJ,qM&"
+                                        "example" : "jZjqn!mG^2t{"
                                     }}
                     }
                   }
@@ -331,11 +331,11 @@
                                         "type" : "number",
                                         "example" : "12345678"
                                     },
-                                    "userName": {
+                                    "username": {
                                         "type" : "string",
                                         "example" : "example"
                                     },
-                                    "fullName": {
+                                    "fullname": {
                                         "type" : "string",
                                         "example" : "example"
                                     },
@@ -343,7 +343,7 @@
                                         "type" : "number",
                                         "example" : "12345678"
                                     },
-                                    "countryCode": {
+                                    "countrycode": {
                                         "type" : "number",
                                         "example" : "12345678"
                                     },
@@ -357,11 +357,11 @@
                                     },
                                     "createdAt": {
                                         "type" : "date",
-                                        "example" : "Fri May 19 2023 12:47:39 GMT+0400 (Gulf Standard Time)"
+                                        "example" : "Fri May 19 2023 12:55:19 GMT+0400 (Gulf Standard Time)"
                                     },
                                     "modifiedAt": {
                                         "type" : "date",
-                                        "example" : "Fri May 19 2023 12:47:39 GMT+0400 (Gulf Standard Time)"
+                                        "example" : "Fri May 19 2023 12:55:19 GMT+0400 (Gulf Standard Time)"
                                     },
                                     "status": {
                                         "type" : "number",
@@ -389,11 +389,11 @@
                   "application/json": {
                     "schema": {
                         "properties": {
-                                    "userName": {
+                                    "username": {
                                         "type" : "string",
                                         "example" : "example"
                                     },
-                                    "fullName": {
+                                    "fullname": {
                                         "type" : "string",
                                         "example" : "example"
                                     },
@@ -401,7 +401,7 @@
                                         "type" : "number",
                                         "example" : "12345678"
                                     },
-                                    "countryCode": {
+                                    "countrycode": {
                                         "type" : "number",
                                         "example" : "12345678"
                                     },
@@ -412,6 +412,10 @@
                                     "email": {
                                         "type" : "string",
                                         "example" : "example@test.com"
+                                    },
+                                    "password": {
+                                        "type" : "string",
+                                        "example" : "f),+4j9&LS^d"
                                     }}
                     }
                   }
@@ -423,7 +427,51 @@
                   "content": {
                     "application/json": {
                       "schema": {
-                        "properties": {}
+                        "properties": {
+                                    "_id": {
+                                        "type" : "number",
+                                        "example" : "12345678"
+                                    },
+                                    "username": {
+                                        "type" : "string",
+                                        "example" : "example"
+                                    },
+                                    "fullname": {
+                                        "type" : "string",
+                                        "example" : "example"
+                                    },
+                                    "phone": {
+                                        "type" : "number",
+                                        "example" : "12345678"
+                                    },
+                                    "countrycode": {
+                                        "type" : "number",
+                                        "example" : "12345678"
+                                    },
+                                    "country": {
+                                        "type" : "string",
+                                        "example" : "example"
+                                    },
+                                    "email": {
+                                        "type" : "string",
+                                        "example" : "example@test.com"
+                                    },
+                                    "createdAt": {
+                                        "type" : "date",
+                                        "example" : "Fri May 19 2023 12:55:19 GMT+0400 (Gulf Standard Time)"
+                                    },
+                                    "modifiedAt": {
+                                        "type" : "date",
+                                        "example" : "Fri May 19 2023 12:55:19 GMT+0400 (Gulf Standard Time)"
+                                    },
+                                    "status": {
+                                        "type" : "number",
+                                        "example" : "12345678"
+                                    },
+                                    "token": {
+                                        "type" : "string",
+                                        "example" : "example"
+                                    }}
                       }
                     }
                   }
