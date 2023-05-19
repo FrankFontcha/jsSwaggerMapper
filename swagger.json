@@ -1,540 +1,592 @@
 {
-        "openapi": "3.0.1",
-        "info": {
-          "title": "SmartFarm backend API",
-          "version": "1.0.0"
-        },
-        "schemes": ["http"],
-        "servers": [{ "url": "http://localhost:3001" }],
-        "paths": {
-        "/v1/access/add": {
-          "post": {
-            "tags": ["/v1/access/add"],
-            "summary": "undefined",
-            "description": "undefined",
-            "requestBody": {
-                "required": true,
-                "content": {
-                  "application/json": {
-                    "schema": {
-                        "properties": {}
-                    }
-                  }
-                }
-            },
-            "responses": {
-                "200": {
-                  "description": "",
-                  "content": {
-                    "application/json": {
-                      "schema": {
-                        "properties": {}
-                      }
-                    }
-                  }
-                }
-            }
-          }
-        },
-        "/v1/access": {
-          "get": {
-            "tags": ["/v1/access"],
-            "summary": "undefined",
-            "description": "undefined",
-            "requestBody": {
-                "required": true,
-                "content": {
-                  "application/json": {
-                    "schema": {
-                        "properties": {}
-                    }
-                  }
-                }
-            },
-            "responses": {
-                "200": {
-                  "description": "",
-                  "content": {
-                    "application/json": {
-                      "schema": {
-                        "properties": {}
-                      }
-                    }
-                  }
-                }
-            }
-          }
-        },
-        "/v1/useraccess": {
-          "get": {
-            "tags": ["/v1/useraccess"],
-            "summary": "undefined",
-            "description": "undefined",
-            "requestBody": {
-                "required": true,
-                "content": {
-                  "application/json": {
-                    "schema": {
-                        "properties": {}
-                    }
-                  }
-                }
-            },
-            "responses": {
-                "200": {
-                  "description": "",
-                  "content": {
-                    "application/json": {
-                      "schema": {
-                        "properties": {}
-                      }
-                    }
-                  }
-                }
-            }
-          }
-        },
-        "/v1/useraccess/add": {
-          "post": {
-            "tags": ["/v1/useraccess/add"],
-            "summary": "undefined",
-            "description": "undefined",
-            "requestBody": {
-                "required": true,
-                "content": {
-                  "application/json": {
-                    "schema": {
-                        "properties": {}
-                    }
-                  }
-                }
-            },
-            "responses": {
-                "200": {
-                  "description": "",
-                  "content": {
-                    "application/json": {
-                      "schema": {
-                        "properties": {}
-                      }
-                    }
-                  }
-                }
-            }
-          }
-        },
-        "/v1/business/addnew": {
-          "post": {
-            "tags": ["/v1/business/addnew"],
-            "summary": "undefined",
-            "description": "undefined",
-            "requestBody": {
-                "required": true,
-                "content": {
-                  "application/json": {
-                    "schema": {
-                        "properties": {}
-                    }
-                  }
-                }
-            },
-            "responses": {
-                "200": {
-                  "description": "",
-                  "content": {
-                    "application/json": {
-                      "schema": {
-                        "properties": {}
-                      }
-                    }
-                  }
-                }
-            }
-          }
-        },
-        "/v1/business/getall": {
-          "post": {
-            "tags": ["/v1/business/getall"],
-            "summary": "undefined",
-            "description": "undefined",
-            "requestBody": {
-                "required": true,
-                "content": {
-                  "application/json": {
-                    "schema": {
-                        "properties": {}
-                    }
-                  }
-                }
-            },
-            "responses": {
-                "200": {
-                  "description": "",
-                  "content": {
-                    "application/json": {
-                      "schema": {
-                        "properties": {}
-                      }
-                    }
-                  }
-                }
-            }
-          }
-        },
-        "/v1/modules/add": {
-          "post": {
-            "tags": ["/v1/modules/add"],
-            "summary": "undefined",
-            "description": "undefined",
-            "requestBody": {
-                "required": true,
-                "content": {
-                  "application/json": {
-                    "schema": {
-                        "properties": {}
-                    }
-                  }
-                }
-            },
-            "responses": {
-                "200": {
-                  "description": "",
-                  "content": {
-                    "application/json": {
-                      "schema": {
-                        "properties": {}
-                      }
-                    }
-                  }
-                }
-            }
-          }
-        },
-        "/v1/modules": {
-          "get": {
-            "tags": ["/v1/modules"],
-            "summary": "undefined",
-            "description": "undefined",
-            "requestBody": {
-                "required": true,
-                "content": {
-                  "application/json": {
-                    "schema": {
-                        "properties": {}
-                    }
-                  }
-                }
-            },
-            "responses": {
-                "200": {
-                  "description": "",
-                  "content": {
-                    "application/json": {
-                      "schema": {
-                        "properties": {}
-                      }
-                    }
-                  }
-                }
-            }
-          }
-        },
-        "/v1/roles/addnew": {
-          "post": {
-            "tags": ["/v1/roles/addnew"],
-            "summary": "undefined",
-            "description": "undefined",
-            "requestBody": {
-                "required": true,
-                "content": {
-                  "application/json": {
-                    "schema": {
-                        "properties": {}
-                    }
-                  }
-                }
-            },
-            "responses": {
-                "200": {
-                  "description": "",
-                  "content": {
-                    "application/json": {
-                      "schema": {
-                        "properties": {}
-                      }
-                    }
-                  }
-                }
-            }
-          }
-        },
-        "/v1/roles/getall": {
-          "post": {
-            "tags": ["/v1/roles/getall"],
-            "summary": "undefined",
-            "description": "undefined",
-            "requestBody": {
-                "required": true,
-                "content": {
-                  "application/json": {
-                    "schema": {
-                        "properties": {}
-                    }
-                  }
-                }
-            },
-            "responses": {
-                "200": {
-                  "description": "",
-                  "content": {
-                    "application/json": {
-                      "schema": {
-                        "properties": {}
-                      }
-                    }
-                  }
-                }
-            }
-          }
-        },
-        "/api/v1/users/login": {
-          "post": {
-            "tags": ["/api/v1/users/login"],
-            "summary": "User login",
-            "description": "Use this Api to login user generate access token",
-            "requestBody": {
-                "required": true,
-                "content": {
-                  "application/json": {
-                    "schema": {
-                        "properties": {
-                                    "email": {
-                                        "type" : "string",
-                                        "example" : "example@test.com"
-                                    },
-                                    "password": {
-                                        "type" : "string",
-                                        "example" : "jZjqn!mG^2t{"
-                                    }}
-                    }
-                  }
-                }
-            },
-            "responses": {
-                "200": {
-                  "description": "",
-                  "content": {
-                    "application/json": {
-                      "schema": {
-                        "properties": {
-                                    "_id": {
-                                        "type" : "number",
-                                        "example" : "12345678"
-                                    },
-                                    "username": {
-                                        "type" : "string",
-                                        "example" : "example"
-                                    },
-                                    "fullname": {
-                                        "type" : "string",
-                                        "example" : "example"
-                                    },
-                                    "phone": {
-                                        "type" : "number",
-                                        "example" : "12345678"
-                                    },
-                                    "countrycode": {
-                                        "type" : "number",
-                                        "example" : "12345678"
-                                    },
-                                    "country": {
-                                        "type" : "string",
-                                        "example" : "example"
-                                    },
-                                    "email": {
-                                        "type" : "string",
-                                        "example" : "example@test.com"
-                                    },
-                                    "createdAt": {
-                                        "type" : "date",
-                                        "example" : "Fri May 19 2023 12:55:19 GMT+0400 (Gulf Standard Time)"
-                                    },
-                                    "modifiedAt": {
-                                        "type" : "date",
-                                        "example" : "Fri May 19 2023 12:55:19 GMT+0400 (Gulf Standard Time)"
-                                    },
-                                    "status": {
-                                        "type" : "number",
-                                        "example" : "12345678"
-                                    },
-                                    "token": {
-                                        "type" : "string",
-                                        "example" : "example"
-                                    }}
-                      }
-                    }
-                  }
-                }
-            }
-          }
-        },
-        "/api/v1/users/register": {
-          "post": {
-            "tags": ["/api/v1/users/register"],
-            "summary": "User Registration",
-            "description": "Use this Api to register user generate access token",
-            "requestBody": {
-                "required": true,
-                "content": {
-                  "application/json": {
-                    "schema": {
-                        "properties": {
-                                    "username": {
-                                        "type" : "string",
-                                        "example" : "example"
-                                    },
-                                    "fullname": {
-                                        "type" : "string",
-                                        "example" : "example"
-                                    },
-                                    "phone": {
-                                        "type" : "number",
-                                        "example" : "12345678"
-                                    },
-                                    "countrycode": {
-                                        "type" : "number",
-                                        "example" : "12345678"
-                                    },
-                                    "country": {
-                                        "type" : "string",
-                                        "example" : "example"
-                                    },
-                                    "email": {
-                                        "type" : "string",
-                                        "example" : "example@test.com"
-                                    },
-                                    "password": {
-                                        "type" : "string",
-                                        "example" : "f),+4j9&LS^d"
-                                    }}
-                    }
-                  }
-                }
-            },
-            "responses": {
-                "200": {
-                  "description": "",
-                  "content": {
-                    "application/json": {
-                      "schema": {
-                        "properties": {
-                                    "_id": {
-                                        "type" : "number",
-                                        "example" : "12345678"
-                                    },
-                                    "username": {
-                                        "type" : "string",
-                                        "example" : "example"
-                                    },
-                                    "fullname": {
-                                        "type" : "string",
-                                        "example" : "example"
-                                    },
-                                    "phone": {
-                                        "type" : "number",
-                                        "example" : "12345678"
-                                    },
-                                    "countrycode": {
-                                        "type" : "number",
-                                        "example" : "12345678"
-                                    },
-                                    "country": {
-                                        "type" : "string",
-                                        "example" : "example"
-                                    },
-                                    "email": {
-                                        "type" : "string",
-                                        "example" : "example@test.com"
-                                    },
-                                    "createdAt": {
-                                        "type" : "date",
-                                        "example" : "Fri May 19 2023 12:55:19 GMT+0400 (Gulf Standard Time)"
-                                    },
-                                    "modifiedAt": {
-                                        "type" : "date",
-                                        "example" : "Fri May 19 2023 12:55:19 GMT+0400 (Gulf Standard Time)"
-                                    },
-                                    "status": {
-                                        "type" : "number",
-                                        "example" : "12345678"
-                                    },
-                                    "token": {
-                                        "type" : "string",
-                                        "example" : "example"
-                                    }}
-                      }
-                    }
-                  }
-                }
-            }
-          }
-        },
-        "/api/v1/users": {
-          "get": {
-            "tags": ["/api/v1/users"],
-            "summary": "User Registration",
-            "description": "Use this Api to register user generate access token",
-            "requestBody": {
-                "required": true,
-                "content": {
-                  "application/json": {
-                    "schema": {
-                        "properties": {}
-                    }
-                  }
-                }
-            },
-            "responses": {
-                "200": {
-                  "description": "",
-                  "content": {
-                    "application/json": {
-                      "schema": {
-                        "properties": {}
-                      }
-                    }
-                  }
-                }
-            }
-          }
-        },
-        "/api/v1/users/:id": {
-          "get": {
-            "tags": ["/api/v1/users/:id"],
-            "summary": "User Registration",
-            "description": "Use this Api to register user generate access token",
-            "requestBody": {
-                "required": true,
-                "content": {
-                  "application/json": {
-                    "schema": {
-                        "properties": {}
-                    }
-                  }
-                }
-            },
-            "responses": {
-                "200": {
-                  "description": "",
-                  "content": {
-                    "application/json": {
-                      "schema": {
-                        "properties": {}
-                      }
-                    }
-                  }
-                }
-            }
-          }
-        }}
+  "openapi": "3.0.1",
+  "info": {
+    "title": "SmartFarm backend API",
+    "version": "1.0.0"
+  },
+  "schemes": [
+    "http"
+  ],
+  "servers": [
+    {
+      "url": "http://localhost:3001"
     }
+  ],
+  "paths": {
+    "/v1/access/add": {
+      "post": {
+        "tags": [
+          "/v1/access/add"
+        ],
+        "summary": "undefined",
+        "description": "undefined",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/access": {
+      "get": {
+        "tags": [
+          "/v1/access"
+        ],
+        "summary": "undefined",
+        "description": "undefined",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/useraccess": {
+      "get": {
+        "tags": [
+          "/v1/useraccess"
+        ],
+        "summary": "undefined",
+        "description": "undefined",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/useraccess/add": {
+      "post": {
+        "tags": [
+          "/v1/useraccess/add"
+        ],
+        "summary": "undefined",
+        "description": "undefined",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/business/addnew": {
+      "post": {
+        "tags": [
+          "/v1/business/addnew"
+        ],
+        "summary": "undefined",
+        "description": "undefined",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/business/getall": {
+      "post": {
+        "tags": [
+          "/v1/business/getall"
+        ],
+        "summary": "undefined",
+        "description": "undefined",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/modules/add": {
+      "post": {
+        "tags": [
+          "/v1/modules/add"
+        ],
+        "summary": "undefined",
+        "description": "undefined",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/modules": {
+      "get": {
+        "tags": [
+          "/v1/modules"
+        ],
+        "summary": "undefined",
+        "description": "undefined",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/roles/addnew": {
+      "post": {
+        "tags": [
+          "/v1/roles/addnew"
+        ],
+        "summary": "undefined",
+        "description": "undefined",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/roles/getall": {
+      "post": {
+        "tags": [
+          "/v1/roles/getall"
+        ],
+        "summary": "undefined",
+        "description": "undefined",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/login": {
+      "post": {
+        "tags": [
+          "/api/v1/users/login"
+        ],
+        "summary": "User login",
+        "description": "Use this Api to login user generate access token",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "example@test.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "0MT,{B@7.gb)"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "authtoken": {
+                      "type": "string",
+                      "example": "example"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "_id": {
+                          "type": "number",
+                          "example": "12345678"
+                        },
+                        "username": {
+                          "type": "string",
+                          "example": "example"
+                        },
+                        "fullname": {
+                          "type": "string",
+                          "example": "example"
+                        },
+                        "phone": {
+                          "type": "number",
+                          "example": "12345678"
+                        },
+                        "countrycode": {
+                          "type": "number",
+                          "example": "12345678"
+                        },
+                        "country": {
+                          "type": "string",
+                          "example": "example"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "example@test.com"
+                        },
+                        "createdAt": {
+                          "type": "date",
+                          "example": "Fri May 19 2023 16:48:47 GMT+0400 (Gulf Standard Time)"
+                        },
+                        "modifiedAt": {
+                          "type": "date",
+                          "example": "Fri May 19 2023 16:48:47 GMT+0400 (Gulf Standard Time)"
+                        },
+                        "status": {
+                          "type": "number",
+                          "example": "12345678"
+                        }
+                      }
+                    },
+                    "authtoken2": {
+                      "type": "string",
+                      "example": "example"
+                    },
+                    "authtoken3": {
+                      "type": "string",
+                      "example": "example"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/register": {
+      "post": {
+        "tags": [
+          "/api/v1/users/register"
+        ],
+        "summary": "User Registration",
+        "description": "Use this Api to register user generate access token",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "example"
+                  },
+                  "fullname": {
+                    "type": "string",
+                    "example": "example"
+                  },
+                  "phone": {
+                    "type": "number",
+                    "example": "12345678"
+                  },
+                  "countrycode": {
+                    "type": "number",
+                    "example": "12345678"
+                  },
+                  "country": {
+                    "type": "string",
+                    "example": "example"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "example@test.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "zm*oy@IRm=PK"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "_id": {
+                      "type": "number",
+                      "example": "12345678"
+                    },
+                    "username": {
+                      "type": "string",
+                      "example": "example"
+                    },
+                    "fullname": {
+                      "type": "string",
+                      "example": "example"
+                    },
+                    "phone": {
+                      "type": "number",
+                      "example": "12345678"
+                    },
+                    "countrycode": {
+                      "type": "number",
+                      "example": "12345678"
+                    },
+                    "country": {
+                      "type": "string",
+                      "example": "example"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "example@test.com"
+                    },
+                    "createdAt": {
+                      "type": "date",
+                      "example": "Fri May 19 2023 16:48:47 GMT+0400 (Gulf Standard Time)"
+                    },
+                    "modifiedAt": {
+                      "type": "date",
+                      "example": "Fri May 19 2023 16:48:47 GMT+0400 (Gulf Standard Time)"
+                    },
+                    "status": {
+                      "type": "number",
+                      "example": "12345678"
+                    },
+                    "token": {
+                      "type": "string",
+                      "example": "example"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users": {
+      "get": {
+        "tags": [
+          "/api/v1/users"
+        ],
+        "summary": "User Registration",
+        "description": "Use this Api to register user generate access token",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/:id": {
+      "get": {
+        "tags": [
+          "/api/v1/users/:id"
+        ],
+        "summary": "User Registration",
+        "description": "Use this Api to register user generate access token",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

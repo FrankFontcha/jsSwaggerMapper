@@ -230,41 +230,8 @@ function getRouteDtoData(dtoName = "", files) {
                 line = _line.toLowerCase().replaceAll(" ", "")
 
                 if (line.match(prefix + dtoName.toLowerCase())) {
-                    let limitReach = false;
-                    let initial = 0;
-                    for (let i = index + 1; i <= allDtosStartLines.length - 1; i++) {
-                        if (!limitReach) {
 
-                            if (allDtosStartLines[i].replaceAll(" ", "").trim() == "}") {
-                                limitReach = true
-                                initial = 0
-                            } else {
-                                let _data = allDtosStartLines[i].split(":")
-                                let type = _data[1].toLowerCase().trim().replaceAll(",", "")
-                                let typeExamplesValues = Object.values(typeExamples)
-                                let typeExamplesLabel = Object.keys(typeExamples)
-                                let indexType = typeExamplesLabel.findIndex(__type => __type == type);
-
-                                let finalTypeValue = typeExamplesValues[indexType]
-                                if (_data[0].trim().toLowerCase() == "email") {
-                                    finalTypeValue = "example@test.com"
-                                }
-                                if (_data[0].trim().toLowerCase().match("password")) {
-                                    finalTypeValue = generateRandomPassword(12)
-                                }
-
-                                if (initial > 0) params += `,`
-                                params += `
-                                    "${_data[0].trim()}": {
-                                        "type" : "${_data[1].toLowerCase().trim().replaceAll(",", "")}",
-                                        "example" : "${finalTypeValue}"
-                                    }`
-                                initial += 1
-                            }
-
-                        }
-                    }
-
+                    params += getDtoFromLines(allDtosStartLines, index + 1, params)
                 }
 
             })
@@ -275,6 +242,88 @@ function getRouteDtoData(dtoName = "", files) {
     }
 
     return "";
+}
+
+function getDtoFromLines(allDtosStartLines, index, params) {
+
+    let limitReach = false;
+    let initial = 0;
+    let params2 = ``;
+
+    for (let i = index; i <= allDtosStartLines.length - 1; i++) {
+        index += 1;
+
+        if (!limitReach) {
+
+            if (allDtosStartLines[i].replaceAll(" ", "").trim() == "}") {
+                limitReach = true
+                initial = 0
+            } else {
+
+                let _data = allDtosStartLines[i].split(":")
+
+                if (_data[1] && _data[1].match("{")) {
+
+                    let _data0 = _data[0].trim();
+
+                    if (_data0.toLowerCase().replaceAll(" ", "".length > 0)) {
+
+                        allDtosStartLines[i] = ""
+
+                        let objectData = getDtoFromLines(allDtosStartLines, index, params2);
+
+                        if (initial > 0) params2 += `,`
+                        params2 += `
+                        "${_data0}": {
+                            "type" : "object",
+                            "properties": {${objectData}
+                        `
+                        initial += 1
+                    }
+
+                } else {
+
+                    let _data0 = _data[0].trim();
+                    let _checkdata0 = _data0.toLowerCase().replaceAll(" ", "")
+
+                    if (_checkdata0.length > 0 && !["}", "},"].includes(_checkdata0)) {
+                        let type = _data[1]?.toLowerCase().trim().replaceAll(",", "")
+                        let typeExamplesValues = Object.values(typeExamples)
+                        let typeExamplesLabel = Object.keys(typeExamples)
+                        let indexType = typeExamplesLabel.findIndex(__type => __type == type);
+
+                        let finalTypeValue = typeExamplesValues[indexType]
+                        if (_data0.toLowerCase() == "email") {
+                            finalTypeValue = "example@test.com"
+                        }
+                        if (_data0.toLowerCase().match("password")) {
+                            finalTypeValue = generateRandomPassword(12)
+                        }
+
+                        allDtosStartLines[i] = ""
+
+                        if (initial > 0) params2 += `,`
+                        params2 += `
+                        "${_data0}": {
+                            "type" : "${type}",
+                            "example" : "${finalTypeValue}"
+                        }`
+
+                        if (allDtosStartLines[i + 1].replaceAll(" ", "").trim() == "},") {
+                            params2 += `}}`
+                        }
+
+                        initial += 1
+                    } else {
+
+                    }
+
+                }
+            }
+        }
+    }
+
+    return params2;
 }
 
 function generateRandomPassword(length) {
