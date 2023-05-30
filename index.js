@@ -4,7 +4,7 @@ const dataPackage = require('../package.json');
 const fs = require('fs');
 
 const typeExamples = {
-    "string": "example",
+    "string": "string_text",
     "number": 1,
     "boolean": true,
     "date": new Date()
@@ -15,7 +15,7 @@ function browseModels() {
     // const folderPath = __dirname + dataConfig.models.path
 
     //get models files
-    const filesModels = getModelFiles()
+    // const filesModels = getModelFiles()
 
     //get DTOs files
     const filesDtos = getDtoFiles()
@@ -138,7 +138,7 @@ function swaggerPaths(params, body) {
     if (params['bodyRequired']) { }
 
     const path = `
-        "${params['url']}": {
+        "${replaceRequestParams(params['url'])}": {
           "${params['method']}": {
             "tags": ["${params['tagname']}"],
             "summary": "${params['name']}",
@@ -183,10 +183,13 @@ function getRequestBody(params) {
 }
 
 function getRequestQueriesParams(params) {
-    let query = `"parameters": [${params['queries']}],`
+    let reqParams = extractRequestParams(params)
+    let query = ``
 
     if (!params['isQueries']) {
-        query = ""
+        query = "" + (reqParams.length > 0) ? `"parameters": [${reqParams}],` : ""
+    }else{
+        query = `"parameters": [${((reqParams.length > 0) ? reqParams+"," : "") + params['queries']}],`
     }
 
     return query;
@@ -388,7 +391,7 @@ function getDtoFromLines(allDtosStartLines, index, startLineKeyword, isQueries =
 
                         if (initial > 0) params2 += `,`
 
-                        if(isQueries) {
+                        if (isQueries) {
                             params2 += `
                             {
                                 "name": "${_data0}",
@@ -399,14 +402,14 @@ function getDtoFromLines(allDtosStartLines, index, startLineKeyword, isQueries =
                                 "description": "",
                                 "required": false
                             }`
-                        }else{
+                        } else {
                             params2 += `
                             "${_data0}": {
                                 "type" : "${type}",
                                 "example" : "${finalTypeValue}"
                             }`
                         }
-                        
+
 
                         if (allDtosStartLines[i + 1].replaceAll(" ", "").trim() == "}," ||
                             (allDtosStartLines[i + 1].replaceAll(" ", "").trim() == "}" && allDtosStartLines[i + 2] && allDtosStartLines[i + 2].replaceAll(" ", "").trim() == "}")
@@ -438,4 +441,35 @@ function generateRandomPassword(length) {
     }
 
     return password.join("");
+}
+
+function extractRequestParams(string) {
+    const regex = /:\w+/g;
+    let match;
+    let i = 0;
+    let params = ""
+
+    while ((match = regex.exec(string['url'].replaceAll("/", " "))) !== null) {
+        if(i > 0) params += `,`
+        i++
+        if(match[0]) {
+            params += `{
+                "name": "${match[0]?.replace(":", "").toLowerCase()}",
+                "in": "path",
+                "schema": {
+                  "type": "${(match[0]?.replace(":", "").toLowerCase().includes("id")) ? 'string' : 'string'}"
+                },
+                "description": "",
+                "required": true
+            }`
+        }
+    }
+
+    return params;
+};
+
+function replaceRequestParams (string) {
+    const regex = /:\w+/g;
+    // console.log(string.replaceAll("/", " ").replaceAll(regex, (match) => `{${match.replace(":", "")}}`))
+    return string.replaceAll(regex, (match) => `{${match.replace(":", "")}}`);
 }

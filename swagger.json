@@ -5,7 +5,7 @@
           "version": "1.0.0"
         },
         "schemes": ["http"],
-        "servers": [{ "url": "http://localhost:3001" }],
+        "servers": [{ "url": "http://10.101.12.15:3001" }],
         
         "components": {
             "securitySchemes": {
@@ -27,7 +27,7 @@
             "tags": ["Access"],
             "summary": "Add new access",
             "description": "",
-            
+            "parameters": [],
             
             "responses": {
                 "200": {
@@ -48,7 +48,7 @@
             "tags": ["Access"],
             "summary": "Get all access",
             "description": "",
-            
+            "parameters": [],
             
             "responses": {
                 "200": {
@@ -69,7 +69,7 @@
             "tags": ["Access"],
             "summary": "Get all user access",
             "description": "",
-            
+            "parameters": [],
             
             "responses": {
                 "200": {
@@ -90,7 +90,7 @@
             "tags": ["Access"],
             "summary": "Add user role access",
             "description": "",
-            
+            "parameters": [],
             
             "responses": {
                 "200": {
@@ -111,7 +111,7 @@
             "tags": ["Business"],
             "summary": "Create new business",
             "description": "",
-            
+            "parameters": [],
             
             "responses": {
                 "200": {
@@ -132,7 +132,7 @@
             "tags": ["Business"],
             "summary": "Get all businesses",
             "description": "",
-            
+            "parameters": [],
             
             "responses": {
                 "200": {
@@ -153,7 +153,7 @@
             "tags": ["Modules"],
             "summary": "Add new modules",
             "description": "",
-            
+            "parameters": [],
             
             "responses": {
                 "200": {
@@ -174,7 +174,7 @@
             "tags": ["Modules"],
             "summary": "Get all modules",
             "description": "",
-            
+            "parameters": [],
             
             "responses": {
                 "200": {
@@ -195,7 +195,7 @@
             "tags": ["Roles"],
             "summary": "Create new roles",
             "description": "",
-            
+            "parameters": [],
             
             "responses": {
                 "200": {
@@ -216,7 +216,7 @@
             "tags": ["Roles"],
             "summary": "Get all roles",
             "description": "",
-            
+            "parameters": [],
             
             "responses": {
                 "200": {
@@ -235,9 +235,9 @@
         "/api/v1/users/login": {
           "post": {
             "tags": ["Users"],
-            "summary": "User login",
+            "summary": "",
             "description": "",
-            
+            "parameters": [],
             "requestBody": {
         "required": true,
         "content": {
@@ -250,7 +250,7 @@
                             },
                             "password": {
                                 "type" : "string",
-                                "example" : "1vWd=&zy,)sd"
+                                "example" : "n#![?G<ISSPe"
                             }}
             }
           }
@@ -272,11 +272,11 @@
                             },
                             "username": {
                                 "type" : "string",
-                                "example" : "example"
+                                "example" : "string_text"
                             },
                             "fullname": {
                                 "type" : "string",
-                                "example" : "example"
+                                "example" : "string_text"
                             },
                             "phone": {
                                 "type" : "number",
@@ -288,7 +288,7 @@
                             },
                             "country": {
                                 "type" : "string",
-                                "example" : "example"
+                                "example" : "string_text"
                             },
                             "email": {
                                 "type" : "string",
@@ -296,11 +296,11 @@
                             },
                             "createdAt": {
                                 "type" : "date",
-                                "example" : "Tue May 30 2023 12:48:46 GMT+0400 (Gulf Standard Time)"
+                                "example" : "Tue May 30 2023 16:28:09 GMT+0400 (Gulf Standard Time)"
                             },
                             "modifiedAt": {
                                 "type" : "date",
-                                "example" : "Tue May 30 2023 12:48:46 GMT+0400 (Gulf Standard Time)"
+                                "example" : "Tue May 30 2023 16:28:09 GMT+0400 (Gulf Standard Time)"
                             },
                             "status": {
                                 "type" : "number",
@@ -308,7 +308,7 @@
                             }}},
                             "authtoken": {
                                 "type" : "string",
-                                "example" : "example"
+                                "example" : "string_text"
                             }
                             }
                       }
@@ -321,9 +321,9 @@
         "/api/v1/users/register": {
           "post": {
             "tags": ["Users"],
-            "summary": "User Registration",
+            "summary": "",
             "description": "",
-            
+            "parameters": [],
             "requestBody": {
         "required": true,
         "content": {
@@ -332,11 +332,11 @@
                 "properties": {
                             "username": {
                                 "type" : "string",
-                                "example" : "example"
+                                "example" : "string_text"
                             },
                             "fullname": {
                                 "type" : "string",
-                                "example" : "example"
+                                "example" : "string_text"
                             },
                             "phone": {
                                 "type" : "number",
@@ -348,7 +348,7 @@
                             },
                             "country": {
                                 "type" : "string",
-                                "example" : "example"
+                                "example" : "string_text"
                             },
                             "email": {
                                 "type" : "string",
@@ -356,7 +356,7 @@
                             },
                             "password": {
                                 "type" : "string",
-                                "example" : "Z2iSK4p&}oRp"
+                                "example" : "crm6w5tGw.jE"
                             }}
             }
           }
@@ -375,11 +375,11 @@
                             },
                             "username": {
                                 "type" : "string",
-                                "example" : "example"
+                                "example" : "string_text"
                             },
                             "fullname": {
                                 "type" : "string",
-                                "example" : "example"
+                                "example" : "string_text"
                             },
                             "phone": {
                                 "type" : "number",
@@ -391,7 +391,7 @@
                             },
                             "country": {
                                 "type" : "string",
-                                "example" : "example"
+                                "example" : "string_text"
                             },
                             "email": {
                                 "type" : "string",
@@ -399,11 +399,11 @@
                             },
                             "createdAt": {
                                 "type" : "date",
-                                "example" : "Tue May 30 2023 12:48:46 GMT+0400 (Gulf Standard Time)"
+                                "example" : "Tue May 30 2023 16:28:09 GMT+0400 (Gulf Standard Time)"
                             },
                             "modifiedAt": {
                                 "type" : "date",
-                                "example" : "Tue May 30 2023 12:48:46 GMT+0400 (Gulf Standard Time)"
+                                "example" : "Tue May 30 2023 16:28:09 GMT+0400 (Gulf Standard Time)"
                             },
                             "status": {
                                 "type" : "number",
@@ -411,7 +411,7 @@
                             },
                             "token": {
                                 "type" : "string",
-                                "example" : "example"
+                                "example" : "string_text"
                             }}
                       }
                     }
@@ -423,7 +423,7 @@
         "/api/v1/users": {
           "get": {
             "tags": ["Users"],
-            "summary": "User get all users",
+            "summary": "",
             "description": "",
             "parameters": [
                             {
@@ -484,15 +484,15 @@
                             },
                             "sort": {
                                 "type" : "string",
-                                "example" : "example"
+                                "example" : "string_text"
                             },
                             "column": {
                                 "type" : "string",
-                                "example" : "example"
+                                "example" : "string_text"
                             },
                             "keyword": {
                                 "type" : "string",
-                                "example" : "example"
+                                "example" : "string_text"
                             }}
                       }
                     }
@@ -501,12 +501,20 @@
             }
           }
         },
-        "/api/v1/users/:id": {
+        "/api/v1/user/{id}": {
           "get": {
             "tags": ["Users"],
-            "summary": "User get user by id",
+            "summary": "",
             "description": "",
-            
+            "parameters": [{
+                "name": "id",
+                "in": "path",
+                "schema": {
+                  "type": "string"
+                },
+                "description": "",
+                "required": true
+            }],
             
             "responses": {
                 "200": {
@@ -514,7 +522,88 @@
                   "content": {
                     "application/json": {
                       "schema": {
-                        "properties": {}
+                        "properties": {
+                            "_id": {
+                                "type" : "number",
+                                "example" : "1"
+                            },
+                            "username": {
+                                "type" : "string",
+                                "example" : "string_text"
+                            },
+                            "fullname": {
+                                "type" : "string",
+                                "example" : "string_text"
+                            },
+                            "phone": {
+                                "type" : "number",
+                                "example" : "1"
+                            },
+                            "countrycode": {
+                                "type" : "number",
+                                "example" : "1"
+                            },
+                            "country": {
+                                "type" : "string",
+                                "example" : "string_text"
+                            },
+                            "email": {
+                                "type" : "string",
+                                "example" : "example@test.com"
+                            },
+                            "createdAt": {
+                                "type" : "date",
+                                "example" : "Tue May 30 2023 16:28:09 GMT+0400 (Gulf Standard Time)"
+                            },
+                            "modifiedAt": {
+                                "type" : "date",
+                                "example" : "Tue May 30 2023 16:28:09 GMT+0400 (Gulf Standard Time)"
+                            },
+                            "status": {
+                                "type" : "number",
+                                "example" : "1"
+                            },
+                            "token": {
+                                "type" : "string",
+                                "example" : "string_text"
+                            }}
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        },
+        "/api/v1/users/{id}": {
+          "delete": {
+            "tags": ["Users"],
+            "summary": "",
+            "description": "",
+            "parameters": [{
+                "name": "id",
+                "in": "path",
+                "schema": {
+                  "type": "string"
+                },
+                "description": "",
+                "required": true
+            }],
+            
+            "responses": {
+                "200": {
+                  "description": "",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "properties": {
+                            "status": {
+                                "type" : "boolean",
+                                "example" : "true"
+                            },
+                            "message": {
+                                "type" : "string",
+                                "example" : "string_text"
+                            }}
                       }
                     }
                   }
