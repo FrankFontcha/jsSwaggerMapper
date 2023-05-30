@@ -1,1 +1,1 @@
-["        usersController.getById(req, res)\r","    });\r","}"]
+["        return usersController.getById(req, res)\r","    });\r","}"]

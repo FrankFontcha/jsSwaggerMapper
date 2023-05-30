@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const typeExamples = {
     "string": "example",
-    "number": 12345678,
+    "number": 1,
     "boolean": true,
     "date": new Date()
 }
@@ -63,7 +63,7 @@ function browseModels() {
 
                 let tmp_arrayAllLines = arrayAllLines.reverse();
 
-                let summary, name, params, result = "";
+                let summary, name, params, result, tagname, queries = null;
 
                 tmp_arrayAllLines.forEach((element, index) => {
                     if (element.includes("startJsAM")) {
@@ -76,13 +76,20 @@ function browseModels() {
                     if (element.toLowerCase().includes("@name")) {
                         name = (element.split(":")[1] ?? "").trim()
                     }
-                    if (element.toLowerCase().includes("@params")) {
+                    if (element.toLowerCase().includes("@params") && method != "get") {
                         params = (element.split(":")[1] ?? "").trim()
                         params = getRouteDtoData(params, filesDtos);
+                    }
+                    if (element.toLowerCase().includes("@query")) {
+                        queries = (element.split(":")[1] ?? "").trim()
+                        queries = getRouteDtoData(queries, filesDtos, true);
                     }
                     if (element.toLowerCase().includes("@result")) {
                         result = (element.split(":")[1] ?? "").trim()
                         result = getRouteDtoData(result, filesDtos);
+                    }
+                    if (element.toLowerCase().includes("@tag")) {
+                        tagname = (element.split(":")[1] ?? "").trim()
                     }
                 });
 
@@ -90,10 +97,14 @@ function browseModels() {
                     "url": url,
                     "method": method,
                     "line": lines,
-                    "name": name,
-                    "summary": summary,
+                    "name": name ?? "",
+                    "summary": summary ?? "",
                     "params": params ?? "",
-                    "result": result ?? ""
+                    "result": result ?? "",
+                    "bodyRequired": params ? true : false,
+                    "tagname": tagname ?? "",
+                    "queries": queries ?? "",
+                    "isQueries": queries ? true : false,
                 })
             }
 
@@ -124,27 +135,21 @@ browseModels()
 
 function swaggerPaths(params, body) {
 
-    let path = `
+    if (params['bodyRequired']) { }
+
+    const path = `
         "${params['url']}": {
           "${params['method']}": {
-            "tags": ["${params['url']}"],
+            "tags": ["${params['tagname']}"],
             "summary": "${params['name']}",
             "description": "${params['summary']}",
-            "requestBody": {
-                "required": true,
-                "content": {
-                  "application/json": {
-                    "schema": {
-                        "properties": {${params['params']}}
-                    }
-                  }
-                }
-            },
+            ${getRequestQueriesParams(params)}
+            ${getRequestBody(params)}
             "responses": {
                 "200": {
                   "description": "",
                   "content": {
-                    "${dataConfig.requestType}": {
+                    "${dataConfig.responseType}": {
                       "schema": {
                         "properties": {${params['result']}}
                       }
@@ -158,8 +163,37 @@ function swaggerPaths(params, body) {
     return path;
 }
 
+function getRequestBody(params) {
+    let body = `"requestBody": {
+        "required": ${params['bodyRequired']},
+        "content": {
+          "${dataConfig.requestType}": {
+            "schema": {
+                "properties": {${params['params']}}
+            }
+          }
+        }
+    },`
+
+    if (!params['bodyRequired']) {
+        body = ""
+    }
+
+    return body;
+}
+
+function getRequestQueriesParams(params) {
+    let query = `"parameters": [${params['queries']}],`
+
+    if (!params['isQueries']) {
+        query = ""
+    }
+
+    return query;
+}
+
 function swaggerStruct(datas) {
-    let content = `{
+    const content = `{
         "openapi": "${dataConfig.swaggerversion}",
         "info": {
           "title": "${dataPackage?.description}",
@@ -167,10 +201,52 @@ function swaggerStruct(datas) {
         },
         "schemes": ["http"],
         "servers": [{ "url": "${dataConfig.baseUrl}" }],
+        ${addApiAuthorization()}
         "paths": {${datas}}
     }`
 
     return content;
+}
+
+function addApiAuthorization() {
+    const headerAuth = dataConfig.headers.find((x) => x.name.toLowerCase() == "authorization")
+
+    if (headerAuth && headerAuth.type == "jwt") {
+        const Auth = `
+        "components": {
+            "securitySchemes": {
+              "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+              }
+            }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],`
+        return Auth
+    } else if (headerAuth && headerAuth.type == "basic") {
+        const Auth = `
+        "components": {
+            "securitySchemes": {
+              "basicAuth": {
+                "type": "http",
+                "scheme": "basic"
+              }
+            }
+        },
+        "security": [
+            {
+              "basicAuth": []
+            }
+        ],`
+        return Auth
+    }
+
+    return ""
 }
 
 function getDtoFiles() {
@@ -191,7 +267,7 @@ function getRouteFiles() {
     return [files, routesPath];
 }
 
-function getRouteDtoData(dtoName = "", files) {
+function getRouteDtoData(dtoName = "", files, isQueries = false) {
     dtoName = dtoName.replace("", "").trim()
     let params = ``;
 
@@ -207,13 +283,15 @@ function getRouteDtoData(dtoName = "", files) {
             let allDtosStartLines = [];
 
             lines.forEach((__line, _index) => {
-                let tmp_line;
+                if (__line !== '') {
+                    let tmp_line;
 
-                tmp_line = __line.toLowerCase().replaceAll(" ", "")
-                allDtosStartLines.push(__line)
+                    tmp_line = __line.toLowerCase().replaceAll(" ", "")
+                    allDtosStartLines.push(__line)
 
-                if (tmp_line.match(startLineKeyword)) {
-                    allDtosStartLinesNumbers.push(_index)
+                    if (tmp_line.match(startLineKeyword)) {
+                        allDtosStartLinesNumbers.push(_index)
+                    }
                 }
             })
 
@@ -231,7 +309,7 @@ function getRouteDtoData(dtoName = "", files) {
 
                 if (line.match(prefix + dtoName.toLowerCase())) {
 
-                    params += getDtoFromLines(allDtosStartLines, index + 1, params)
+                    params += getDtoFromLines(allDtosStartLines, index + 1, startLineKeyword, isQueries)
                 }
 
             })
@@ -244,7 +322,7 @@ function getRouteDtoData(dtoName = "", files) {
     return "";
 }
 
-function getDtoFromLines(allDtosStartLines, index, params) {
+function getDtoFromLines(allDtosStartLines, index, startLineKeyword, isQueries = false) {
 
     let limitReach = false;
     let initial = 0;
@@ -273,11 +351,17 @@ function getDtoFromLines(allDtosStartLines, index, params) {
                         let objectData = getDtoFromLines(allDtosStartLines, index, params2);
 
                         if (initial > 0) params2 += `,`
-                        params2 += `
-                        "${_data0}": {
-                            "type" : "object",
-                            "properties": {${objectData}
-                        `
+
+                        if (isQueries) {
+                            params2 += `${objectData}`
+                        } else {
+                            params2 += `
+                            "${_data0}": {
+                                "type" : "object",
+                                "properties": {${objectData}
+                            `
+                        }
+
                         initial += 1
                     }
 
@@ -303,13 +387,32 @@ function getDtoFromLines(allDtosStartLines, index, params) {
                         allDtosStartLines[i] = ""
 
                         if (initial > 0) params2 += `,`
-                        params2 += `
-                        "${_data0}": {
-                            "type" : "${type}",
-                            "example" : "${finalTypeValue}"
-                        }`
 
-                        if (allDtosStartLines[i + 1].replaceAll(" ", "").trim() == "},") {
+                        if(isQueries) {
+                            params2 += `
+                            {
+                                "name": "${_data0}",
+                                "in": "query",
+                                "schema": {
+                                  "type": "${type}"
+                                },
+                                "description": "",
+                                "required": false
+                            }`
+                        }else{
+                            params2 += `
+                            "${_data0}": {
+                                "type" : "${type}",
+                                "example" : "${finalTypeValue}"
+                            }`
+                        }
+                        
+
+                        if (allDtosStartLines[i + 1].replaceAll(" ", "").trim() == "}," ||
+                            (allDtosStartLines[i + 1].replaceAll(" ", "").trim() == "}" && allDtosStartLines[i + 2] && allDtosStartLines[i + 2].replaceAll(" ", "").trim() == "}")
+                            // (allDtosStartLines[i + 1].replaceAll(" ", "").trim() == "}" && allDtosStartLines[i + 2] && allDtosStartLines[i + 2].toLowerCase().replaceAll(" ", "").trim().match(startLineKeyword))
+                        ) {
+
                             params2 += `}}`
                         }
 

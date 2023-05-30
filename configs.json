@@ -1,6 +1,8 @@
 {
     "baseUrl": "http://localhost:3001",
     "requestType": "application/json",
+    "responseType": "application/json",
+    "version": "1.0.0",
     "swaggerversion": "3.0.1",
     "extention": "ts",
     "models": {
@@ -17,6 +19,6 @@
         "path": "/routes"
     },
     "headers": [
-        {"name": "Authorization", "type": "Bearer"}
+        {"name": "Authorization", "type": "jwt", "sheme": "bearer"}
     ]
 }
